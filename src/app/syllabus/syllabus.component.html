@@ -1,0 +1,41 @@
+<div class="container">
+    <h1 class="m-5">Syllabus Template</h1>
+    
+    <form [formGroup]="syllabusForm" class="form-group">
+    
+        <label class="m-2 "for="schoolnam">Schools:  </label>
+    
+      
+    
+      <select class ="btn m-2 bg-dark text-white align-middle"name="schoolnam" id="schoolnam">
+        <option value="" disabled selected hidden>Schools</option>
+          <option value="sample1">sample</option>
+          <option value="sample2">sample2</option>
+      </select>
+      
+      
+     
+    
+      <div formArrayName="progarr">
+        <div *ngFor="let item of progs.controls; let pointIndex=index" [formGroupName]="pointIndex"> 
+        
+        <label for="descr">Unit: {{pointIndex+1}}</label>
+        
+        <textarea name="descr" id="descr" formControlName ="program" cols="40" rows="4" class="m-1"></textarea>
+        <button type="button" class ="btn btn-info m-1" (click)="deleteProgram(pointIndex)">Delete</button>
+        <div formArrayName = "check">
+        <button type="button" class ="btn btn-info m-1" (click)="addk(1)">addk1</button>
+        <button type="button" class ="btn btn-info m-1" (click)="addk(2)">addk2</button>
+        <button type="button" class ="btn btn-info m-1" (click)="addk(3)">addk3</button>
+        <button type="button" class ="btn btn-info m-1" (click)="addk(4)">addk4</button>
+        <button type="button" class ="btn btn-info m-1" (click)="addk(5)">addk5</button>
+        </div>
+        
+        </div>
+        <button type="button"class ="btn btn-primary m-1" (click)="addProgram()">Add Program</button>
+      </div>
+    
+    </form>
+    {{ this.syllabusForm.value | json}}
+    {{ this.syllabusForm.value.departname | json}}
+</div>

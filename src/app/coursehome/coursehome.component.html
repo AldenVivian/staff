@@ -1,0 +1,85 @@
+
+<div class="container">
+
+<form [formGroup] ="courseForm" (ngSubmit) ="saveDetails()">
+    <div class="form-group">
+      <label for="coursecode">Course Code</label>
+      <input type="text" class="form-control" id="coursecode" placeholder="Course Code" formControlName = "coursecode">
+        <div class="error text-danger" *ngIf="courseForm.controls['coursecode'].errors">
+            <div *ngIf="courseForm.controls['coursecode'].errors.minlength">must be at least 2 characters</div>
+            <div *ngIf="courseForm.controls['coursecode'].errors.pattern"> only alphanumeric input allowed</div>
+            <div *ngIf="courseForm.controls['coursecode'].touched && courseForm.controls['coursecode'].errors.required">Required Field</div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="coursetitle">Course Title</label>
+      <input type="text" class="form-control" id="coursetitle" placeholder="Course Title"formControlName = "coursetitle">
+      <div class="error text-danger" *ngIf="courseForm.controls['coursetitle'].errors">
+        <div *ngIf="courseForm.controls['coursetitle'].errors.minlength">must be at least 2 characters</div>
+        <div *ngIf="courseForm.controls['coursetitle'].errors.pattern"> only alphabets allowed</div>
+        <div *ngIf="courseForm.controls['coursetitle'].touched && courseForm.controls['coursetitle'].errors.required">Required Field</div>
+    </div>
+    </div>
+    <div class="form-group">
+        <label for="credits">Credits</label>
+        <input type="number" class="form-control" id="credits" placeholder="Credits"formControlName = "credits">
+        <div class="error text-danger" *ngIf="courseForm.controls['credits'].errors">
+            <div *ngIf="courseForm.controls['credits'].errors.minlength">must be at least 1 character</div>
+            <div *ngIf="courseForm.controls['credits'].errors.pattern"> only numeric values allowed</div>
+            <div *ngIf="courseForm.controls['credits'].touched && courseForm.controls['credits'].errors.required">Required Field</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="hours">Hours/Week</label>
+        <input type="number" class="form-control" id="hours" placeholder="Hours/week"formControlName = "hours">
+        <div class="error text-danger" *ngIf="courseForm.controls['hours'].errors">
+            <div *ngIf="courseForm.controls['hours'].errors.minlength">must be at least 1 characters</div>
+            <div *ngIf="courseForm.controls['hours'].errors.pattern"> only numeric values allowed</div>
+            <div *ngIf="courseForm.controls['hours'].touched && courseForm.controls['hours'].errors.required">Required Field</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" class="form-control" id="category" placeholder="Category"formControlName = "category">
+        <div class="error text-danger" *ngIf="courseForm.controls['category'].errors">
+            <div *ngIf="courseForm.controls['category'].errors.minlength">must be at least 4 characters</div>
+            <div *ngIf="courseForm.controls['category'].errors.pattern"> only alphabets and ['()','-','/',','] allowed</div>
+            <div *ngIf="courseForm.controls['category'].touched && courseForm.controls['category'].errors.required">Required Field</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="semester">Semester</label>
+        <input type="number" class="form-control" id="semester" placeholder="Semester"formControlName = "semester">
+        <div class="error text-danger" *ngIf="courseForm.controls['semester'].errors">
+            <div *ngIf="courseForm.controls['semester'].errors.minlength">must be at least 2 characters</div>
+            <div *ngIf="courseForm.controls['semester'].errors.pattern"> only alphabets allowed</div>
+            <div *ngIf="courseForm.controls['semester'].touched && courseForm.controls['semester'].errors.required">Required Field</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="regulation">Regulation</label>
+        <input type="text" class="form-control" id="regulation" placeholder="Regulation"formControlName = "regulation">
+        <div class="error text-danger" *ngIf="courseForm.controls['regulation'].errors">
+            <div *ngIf="courseForm.controls['regulation'].errors.minlength">must be at least 4 characters</div>
+            <div *ngIf="courseForm.controls['regulation'].errors.pattern"> only numeric values allowed</div>
+            <div *ngIf="courseForm.controls['regulation'].touched && courseForm.controls['regulation'].errors.required">Required Field</div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled] = "!courseForm.valid">Save</button>
+    
+  </form>
+</div>
+
+<p class="text-center">Form Validity : {{this.courseForm.valid}} </p>
+<div class="container align-middle">
+<h3>Display saved info under here</h3>
+
+
+<p>Course Code : {{this.courseForm.coursecode | json}}</p>
+<p>Course Title : {{this.courseForm.coursetitle | json}}</p>
+<p>Credits : {{this.courseForm.credits | json}}</p>
+<p>Hours/Week : {{this.courseForm.hours | json}}</p>
+<p>Category : {{this.courseForm.category | json}}</p>
+<p>Semester : {{this.courseForm.semester | json}}</p>
+<p>Regulation : {{this.courseForm.regulation | json}}</p>
+</div>
