@@ -10,12 +10,23 @@ import { FormBuilder,FormGroup, FormArray } from '@angular/forms';
 export class SyllabusComponent implements OnInit {
 
   kvalue:any;
+  
+
+  checkarr:any = [];
   syllabusForm: FormGroup;
   constructor(private fb: FormBuilder){
+    
+    
     this.syllabusForm = this.fb.group({
       
-      progarr: this.fb.array([this.fb.group({program:''})]),
-      kvalue : this.fb.array([this.fb.group({k:''})])
+      progarr: this.fb.array([this.fb.group({program:'',k1:'false',k2:'false',k3:'false',k4:'false',k5:'false'})]),
+      
+      //kvalue : this.fb.array([this.fb.group({k:''})])
+     // k1 :[''],
+      //k2 :[''],
+      //k3 :[''],
+     // k4 :[''],
+     // k5 :[''],
     })
 
   }
@@ -23,8 +34,14 @@ export class SyllabusComponent implements OnInit {
      /* Initiate the form structure */
      this.syllabusForm = this.fb.group({
     
-      progarr: this.fb.array([this.fb.group({program:''})]),
-      kvalue : this.fb.array([this.fb.group({k:''})])   //this.fb.array([this.fb.group({k:''})])])
+      progarr: this.fb.array([this.fb.group({program:'',k1:'true',k2:'true',k3:'true',k4:'true',k5:'true'})]),
+      
+      //kvalue : this.fb.array([this.fb.group({k:''})])   //this.fb.array([this.fb.group({k:''})])])
+      //k1 :[''],
+     // k2 :[''],
+     // k3 :[''],
+     //k4 :[''],
+      //k5 :[''],
       
     })
     
@@ -33,9 +50,14 @@ export class SyllabusComponent implements OnInit {
   get progs() {
     return this.syllabusForm.get('progarr') as FormArray;
   }
+  
 
-  get checker(){
-    return this.syllabusForm.get('kvalue') as FormArray;
+ 
+
+  addProgram() {
+    this.progs.push(this.fb.group({program:'',k1:'true',k2:'true',k3:'true',k4:'true',k5:'true'}));
+    
+    
   }
 
  
@@ -47,9 +69,7 @@ export class SyllabusComponent implements OnInit {
     //this.progs.setValue(k:)
 
   }
-  addProgram() {
-    this.progs.push(this.fb.group({program:''}));
-  }
+  
 
   
   deleteProgram(index:number) {

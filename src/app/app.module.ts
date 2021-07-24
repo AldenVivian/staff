@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoursehomeComponent } from './coursehome/coursehome.component';
 import { SyllabusComponent } from './syllabus/syllabus.component';
+import { OverviewComponent } from './overview/overview.component';
+import { AcademicComponent } from './academic/academic.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursehomeComponent,
-    SyllabusComponent
+    SyllabusComponent,
+    OverviewComponent,
+    AcademicComponent
   ],
   imports: [
     BrowserModule,

@@ -7,11 +7,11 @@
     
       
     
-      <select class ="btn m-2 bg-dark text-white align-middle"name="schoolnam" id="schoolnam">
+     <!-- <select class ="btn m-2 bg-dark text-white align-middle"name="schoolnam" id="schoolnam">
         <option value="" disabled selected hidden>Schools</option>
           <option value="sample1">sample</option>
           <option value="sample2">sample2</option>
-      </select>
+      </select>-->
       
       
      
@@ -23,17 +23,45 @@
         
         <textarea name="descr" id="descr" formControlName ="program" cols="40" rows="4" class="m-1"></textarea>
         <button type="button" class ="btn btn-info m-1" (click)="deleteProgram(pointIndex)">Delete</button>
-        <div formArrayName = "check">
+
+       
+        <!--<div formArrayName = "check">
         <button type="button" class ="btn btn-info m-1" (click)="addk(1)">addk1</button>
         <button type="button" class ="btn btn-info m-1" (click)="addk(2)">addk2</button>
         <button type="button" class ="btn btn-info m-1" (click)="addk(3)">addk3</button>
         <button type="button" class ="btn btn-info m-1" (click)="addk(4)">addk4</button>
         <button type="button" class ="btn btn-info m-1" (click)="addk(5)">addk5</button>
-        </div>
+        </div>-->
+        <label for="k1">K1</label>
+        <input type="checkbox" id="k1" name="k1" formControlName ="k1">
+        <label for="k2">K2</label>
+        <input type="checkbox" id="k2" name="k2" formControlName ="k2">
+        <label for="k3">K3</label>
+        <input type="checkbox" id="k3" name="k3" formControlName ="k3">
+        <label for="k4">K4</label>
+        <input type="checkbox" id="k4" name="k4" formControlName ="k4">
+        <label for="k5">K5</label>
+        <input type="checkbox" id="k5" name="k5" formControlName ="k5">
+      </div>
+     
+       
+       
         
-        </div>
+        
         <button type="button"class ="btn btn-primary m-1" (click)="addProgram()">Add Program</button>
       </div>
+      <!--<div class="form-group">
+        <label for="k1">K1</label>
+        <input type="checkbox" id="k1" name="k1" formControlName ="k1" value="1">
+        <label for="k2">K2</label>
+        <input type="checkbox" id="k2" name="k2" formControlName ="k2" value="1">
+        <label for="k3">K3</label>
+        <input type="checkbox" id="k3" name="k3" formControlName ="k3" value="1">
+        <label for="k4">K4</label>
+        <input type="checkbox" id="k4" name="k4" formControlName ="k4" value="1">
+        <label for="k5">K5</label>
+        <input type="checkbox" id="k5" name="k5" formControlName ="k5" value="1">
+        </div>-->
     
     </form>
     {{ this.syllabusForm.value | json}}
