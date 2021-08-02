@@ -14,6 +14,10 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  onSubmit(){
+    console.log(this.overview.value);
+  }
   
 
 }
